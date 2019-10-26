@@ -29,15 +29,9 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.robot.Robot;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
 
 
 /**
@@ -53,18 +47,24 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="TerryTeleOp", group="Linear Opmode")
+@Autonomous(name="TerryAuto7", group="Linear Opmode")
 //@Disabled
-public class TerryTeleOp extends LinearOpMode {
+public class TerryAuto7 extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     private TechbotHardware2 Terry = new TechbotHardware2();
-
+    static final double     FORWARD_SPEED = -0.6;
+    static final double STOP_SPEED = 0.0;
+    static final double     SPIN_SPEED    = 0.5;
+    static final double SLIDEL_SPEED = 0.6;
+    static final double SLIDER_SPEED = -0.6;
+    static final double LARM_SPEED = 0.7;
+    static final double FARM_SPEED = 0.1;
 
     @Override
     public void runOpMode() {
-        telemetry.addData("Status", "Initialized");
+        telemetry.addData("Status", "Ready to run");
         telemetry.update();
 
         // Initialize the hardware variables. Note that the strings used here as parameters
@@ -72,7 +72,7 @@ public class TerryTeleOp extends LinearOpMode {
         // step (using the FTC Robot Controller app on the phone).
 
 
-Terry.init(hardwareMap);
+        Terry.init(hardwareMap);
         // Most robots need the motor on one side to be reversed to drive forward
         // Reverse the motor that runs backwards when connected directly to the battery
         //Terry.arm.setDirection(DcMotor.Direction.FORWARD);
@@ -115,36 +115,36 @@ Terry.init(hardwareMap);
         right back wheel moves back*/
 
         //Route 1.  We start to the left on the blue side. Partner moves foundation.
-        
+
         //Route 1.  Move forward. 
-        
+
         //Route 1.  Move right. (under near side of alliance bridge).
-        
+
         //Route 1.  Use color sensor or camera to find black skystone.
-        
+
         //Route 1.  Pick up skystone.
-        
+
         //Route 1.  Move back under alliance bridge. 
-        
+
         //Route 1.  Drop skystone in building zone (doesn't need to be on foundation).
-        
+
         //Route 1.  Use color sensor to park under alliance bridge.
 
-        
+
         //Route 2.  We start to the left on the blue side. We move foundation.
-        
+
         //Route 2.  Move forward and left to foundation.
-        
+
         //Route 2.  Grab foundation with arm.
-        
+
         //Route 2.  Drag foundation into corner with triangle by moving backwards.
-        
+
         //Route 2.  Move right until in front of skystones.
-        
+
         //Route 2.  Move forward 2 skystones.
-        
+
         //Route 2.  Use color sensor or camera to find black skystone.
-        
+
         //Route 2.  Pick up skystone
 
         //Route 2.  Move back under alliance bridge.
@@ -161,7 +161,7 @@ Terry.init(hardwareMap);
         //Route 3.  Use color sensor or camera to find black skystone.
 
         //Route 3.  Pick up skystone.
-        
+
         //Route 3.  Move back under alliance bridge. 
 
         //Route 3.  Drop skystone in building zone (doesn't need to be on foundation).
@@ -169,7 +169,6 @@ Terry.init(hardwareMap);
         //Route 3.  Use color sensor to park under alliance bridge.
 
 
-        
         //Route 4.  We start to the right on the blue side. We move foundation.
 
         //Route 4.  Move right until in front of skystones.
@@ -183,7 +182,7 @@ Terry.init(hardwareMap);
         //Route 4.  Move back under alliance bridge.
 
         //Route 4.  Drop skystone on foundation. 
-        
+
         //Route 4.  Move forward and left to foundation.
 
         //Route 4.  Grab foundation with arm.
@@ -191,7 +190,6 @@ Terry.init(hardwareMap);
         //Route 4.  Drag foundation into building zone by moving backwards.
 
         //Route 4.  Use color sensor to park under alliance bridge.
-
 
 
         //Route 5 (similar to 3).  We start to the left on the red side. Partner moves foundation.
@@ -207,7 +205,6 @@ Terry.init(hardwareMap);
         //Route 5 (3).  Drop skystone in building zone (doesn't need to be on foundation).
 
         //Route 5 (3).  Use color sensor to park under alliance bridge.
-
 
 
         //Route 6 (similar to 4).  We start to the left on the red side. We move foundation.
@@ -250,7 +247,6 @@ Terry.init(hardwareMap);
         //Route 7 (1).  Use color sensor to park under alliance bridge.
 
 
-
         //Route 8 (similar to 2).  We start to the right on the red side. We move foundation.
 
         //Route 8 (2).  Move forward and right to foundation.
@@ -274,77 +270,223 @@ Terry.init(hardwareMap);
         //Route 8 (2).  Use color sensor to park under alliance bridge.
 
 
-
-
-
-
-
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
         runtime.reset();
 
         // run until the end of the match (driver presses STOP)
-        while (opModeIsActive()) {
 
-            // Setup a variable for each drive wheel to save power level for telemetry
-           /* double leftPower;
-            double rightPower;
-            double leftBackPower;
-            double rightBackPower;*/
-            //double armPower;
-            double handPosition;
-           // double wristPosition;
-            double slidePower;
-            double drivePower;
-            double spinPowerCCW;
-            double slideSpower;
-            double spinPowerCW;
-            double larmPower;
-            double farmPower;
-            double driveSPower;
+        Terry.servoHand.setPosition(0);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < 0)) {
+                telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                telemetry.update();
+            }
 
-            // Tank Mode uses one stick to control each wheel.
-            // - This requires no math, but it is hard to drive forward slowly and keep straight.
-
-            /*leftPower  = gamepad1.right_stick_y ;
-            rightPower = gamepad1.right_stick_y ;
-            leftBackPower = gamepad1.right_stick_y;
-            rightBackPower = gamepad1.right_stick_y;*/
-            //armPower = gamepad2.left_stick_y;
-            handPosition = gamepad2.right_trigger;
-            slidePower = gamepad1.right_stick_x;
-            drivePower = gamepad1.right_stick_y;
-            driveSPower = gamepad1.left_stick_y;
-            spinPowerCCW = gamepad1.right_trigger;
-            slideSpower = gamepad1.left_stick_x;
-            spinPowerCW = -gamepad1.left_trigger;
-            larmPower = gamepad2.left_stick_y;
-            farmPower = gamepad2.right_stick_y;
-
-            //wristPosition = gamepad2.left_trigger;
-
-            // Send calculated power to wheels
-            /*Terry.leftDrive.setPower(leftPower);
-            Terry.rightDrive.setPower(rightPower);
-            Terry.leftBackDrive.setPower(leftBackPower);
-            Terry.rightBackDrive.setPower(rightBackPower);*/
-
-            Terry.larm.setPower(larmPower/4);
-            Terry.farm.setPower(farmPower/4);
-            Terry.servoHand.setPosition(0.00+handPosition);
-            //Terry.servoWrist.setPosition(0.00+wristPosition);
-            Terry.slideL(slidePower);
-            Terry.drive(drivePower);
-            Terry.spin(spinPowerCCW);
-            Terry.slideS(slideSpower);
-            Terry.spin(spinPowerCW);
-            Terry.driveS(driveSPower);
-
-            // Show the elapsed game time and wheel power.
-            //telemetry.addData("Status", "Run Time: " + runtime.toString());
-           // telemetry.addData("Motors", "left (%.2f), right (%.2f)", Terry.leftDrive, Terry.rightDrive, /*armPower, */Terry.leftBackDrive, Terry.rightBackDrive);
-            /*telemetry.addData("Servo Position", "%5.2f", handPosition/*, wristPosition);*/
-            //telemetry.update();
+        Terry.drive(-FORWARD_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1.35)) {
+            telemetry.addData("Drive", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
         }
-    }
-}
+
+        Terry.spin(-SPIN_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.48)) {
+            telemetry.addData("Drive", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.stop(STOP_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.1)) {
+            telemetry.addData("Slide", "Leg 4: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.drive(FORWARD_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1.89)) {
+            telemetry.addData("Slide", "Leg 5: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+// You are now all the way under the skybridge
+
+        Terry.spin(-SPIN_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.44)) {
+            telemetry.addData("Drive", "Leg 6: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+            Terry.stop(STOP_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+                    telemetry.addData("Slide", "Leg 7: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+            }
+
+                Terry.servoHand.setPosition(1);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.16)) {
+                telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+                telemetry.update();
+            }
+
+                Terry.stop(STOP_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.44)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                Terry.drive(-FORWARD_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.29)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                Terry.stop(STOP_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 1)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                Terry.servoHand.setPosition(0);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.1)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                //Terry has block in hand on the ground
+
+                Terry.stop(STOP_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                Terry.larm.setPower(LARM_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.6)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                Terry.stop(STOP_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 1)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                //Terry has the block in hand hovering over original place
+
+                Terry.drive(-FORWARD_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                Terry.slideL(SLIDEL_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 3.4)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                Terry.spin(-SPIN_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 1.1)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                Terry.stop(STOP_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+        Terry.larm.setPower(LARM_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.drive(-FORWARD_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.28)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        //Terry has block in hand hovering over foundation
+
+        Terry.stop(STOP_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.3)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+                Terry.servoHand.setPosition(1);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                Terry.stop(STOP_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+        Terry.drive(FORWARD_SPEED);
+                runtime.reset();
+                while (opModeIsActive() && (runtime.seconds() < 0.4)) {
+                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
+
+                Terry.stop(STOP_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.3)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.larm.setPower(-LARM_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.stop(STOP_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.3)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.slideL(SLIDEL_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+
+            }
+        }
+

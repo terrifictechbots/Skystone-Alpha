@@ -31,7 +31,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
@@ -48,9 +47,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="TerryAuto1", group="Linear Opmode")
+@Autonomous(name="TerryAuto", group="Linear Opmode")
 //@Disabled
-public class TerryAuto1 extends LinearOpMode {
+public class TerryAuto2 extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -454,14 +453,43 @@ public class TerryAuto1 extends LinearOpMode {
 
         Terry.drive(FORWARD_SPEED);
                 runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.4)) {
+                while (opModeIsActive() && (runtime.seconds() < 0.2)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
                 }
+                //Block is dropped on foundation sitting away from foudation
 
                 Terry.stop(STOP_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.3)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.8)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.spin(SPIN_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.88)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.drive(FORWARD_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.17)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.farm.setPower(FARM_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.8)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.drive(-FORWARD_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.44)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
@@ -469,6 +497,13 @@ public class TerryAuto1 extends LinearOpMode {
         Terry.larm.setPower(-LARM_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.farm.setPower(-FARM_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.8)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }

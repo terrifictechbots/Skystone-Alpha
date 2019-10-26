@@ -77,11 +77,24 @@ public class TechbotHardware2 {
 
     }
 
-    public void slide(double slideDrive) {
+    public void slideL(double slideDrive) {
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
         leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
         rightBackDrive.setDirection(DcMotor.Direction.REVERSE);
+
+        leftDrive.setPower(slideDrive);
+        rightDrive.setPower(slideDrive);
+        leftBackDrive.setPower(slideDrive);
+        rightBackDrive.setPower(slideDrive);
+
+    }
+
+    public void slideR(double slideDrive) {
+        leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        leftBackDrive.setDirection(DcMotor.Direction.FORWARD);
+        rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
 
         leftDrive.setPower(slideDrive);
         rightDrive.setPower(slideDrive);
@@ -115,6 +128,24 @@ public class TechbotHardware2 {
         rightBackDrive.setPower(driveDrive);
 
     }
+
+    public void stop(double stopDrive) {
+        leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
+        leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
+        larm.setDirection(DcMotor.Direction.FORWARD);
+        farm.setDirection(DcMotor.Direction.FORWARD);
+
+        leftDrive.setPower(stopDrive);
+        rightDrive.setPower(stopDrive);
+        leftBackDrive.setPower(stopDrive);
+        rightBackDrive.setPower(stopDrive);
+        larm.setPower(stopDrive);
+        farm.setPower(stopDrive);
+
+    }
+
     public void driveS(double driveSDrive) {
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
