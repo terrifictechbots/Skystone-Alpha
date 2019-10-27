@@ -60,6 +60,7 @@ public class TechbotHardware2 {
     public DcMotor rightBackDrive = null;
     public DcMotor larm = null;
     public DcMotor farm = null;
+    public ElapsedTime runtime;
 
     public Servo servoHand = null;
     //public Servo servoWrist = null;
@@ -77,24 +78,11 @@ public class TechbotHardware2 {
 
     }
 
-    public void slideL(double slideDrive) {
+    public void slide(double slideDrive) {
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
         leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
         rightBackDrive.setDirection(DcMotor.Direction.REVERSE);
-
-        leftDrive.setPower(slideDrive);
-        rightDrive.setPower(slideDrive);
-        leftBackDrive.setPower(slideDrive);
-        rightBackDrive.setPower(slideDrive);
-
-    }
-
-    public void slideR(double slideDrive) {
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
-        leftBackDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
 
         leftDrive.setPower(slideDrive);
         rightDrive.setPower(slideDrive);
@@ -116,6 +104,14 @@ public class TechbotHardware2 {
 
     }
 
+    //NO TELEOP
+    public void slidebytime(double slideSDrive, double slideTime) {
+        this.slide(slideSDrive);
+        while (runtime.seconds() < slideTime);
+        //telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+        //telemetry.update();
+    }
+
     public void drive(double driveDrive) {
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -126,24 +122,14 @@ public class TechbotHardware2 {
         rightDrive.setPower(driveDrive);
         leftBackDrive.setPower(driveDrive);
         rightBackDrive.setPower(driveDrive);
-
     }
 
-    public void stop(double stopDrive) {
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);
-        leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
-        larm.setDirection(DcMotor.Direction.FORWARD);
-        farm.setDirection(DcMotor.Direction.FORWARD);
-
-        leftDrive.setPower(stopDrive);
-        rightDrive.setPower(stopDrive);
-        leftBackDrive.setPower(stopDrive);
-        rightBackDrive.setPower(stopDrive);
-        larm.setPower(stopDrive);
-        farm.setPower(stopDrive);
-
+    //NO TELEOP
+    public void drivebytime(double driveDrive, double driveTime) {
+        this.drive(driveDrive);
+        while (runtime.seconds() < driveTime);
+        //telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+        //telemetry.update();
     }
 
     public void driveS(double driveSDrive) {
@@ -172,12 +158,20 @@ public class TechbotHardware2 {
 
     }
 
+    //NO TELEOP
+    public void spinbytime(double spinDrive, double spinTime) {
+        this.spin(spinDrive);
+        while (runtime.seconds() < spinTime);
+        //telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+        //telemetry.update();
+    }
+
 
     /* Initialize standard Hardware interfaces */
     public void init(HardwareMap ahwMap) {
         // Save reference to Hardware map
         hwMap = ahwMap;
-
+        runtime = new ElapsedTime ();
         //Issues getting the techbot to run. Keeps looking for left front and back and right front and back motors
         // Define and Initialize Motors
         leftDrive  = hwMap.get(DcMotor.class, "Left front motor");
@@ -197,6 +191,7 @@ public class TechbotHardware2 {
         farm.setDirection(DcMotor.Direction.FORWARD);
         //lift.setDirection(DcMotor.Direction.FORWARD);
 
+
         // Set all motors to zero power
         leftDrive.setPower(0);
         rightDrive.setPower(0);
@@ -205,6 +200,7 @@ public class TechbotHardware2 {
         larm.setPower(0);
         farm.setPower(0);
         //lift.setPower(0);
+
 
         /*
         // Set all motors to run without encoders.
