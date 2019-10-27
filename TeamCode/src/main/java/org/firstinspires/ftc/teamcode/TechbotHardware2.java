@@ -61,6 +61,7 @@ public class TechbotHardware2 {
     public DcMotor larm = null;
     public DcMotor farm = null;
     public ElapsedTime runtime;
+
     public Servo servoHand = null;
     //public Servo servoWrist = null;
 
@@ -77,7 +78,7 @@ public class TechbotHardware2 {
 
     }
 
-    public void slideL(double slideDrive) {
+    public void slide(double slideDrive) {
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
         leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -87,26 +88,7 @@ public class TechbotHardware2 {
         rightDrive.setPower(slideDrive);
         leftBackDrive.setPower(slideDrive);
         rightBackDrive.setPower(slideDrive);
-    }
 
-    public void slideR(double slideDrive) {
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
-        leftBackDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
-
-        leftDrive.setPower(slideDrive);
-        rightDrive.setPower(slideDrive);
-        leftBackDrive.setPower(slideDrive);
-        rightBackDrive.setPower(slideDrive);
-    }
-
-    //NO TELEOP
-    public void slideByTime (double slideDrive, double slideTime) {
-        this.slideL(slideDrive);
-        while (runtime.seconds() < slideTime) {
-            // do nothing
-        }
     }
 
     public void slideS(double slideSDrive) {
@@ -119,6 +101,15 @@ public class TechbotHardware2 {
         rightDrive.setPower(slideSDrive);
         leftBackDrive.setPower(slideSDrive);
         rightBackDrive.setPower(slideSDrive);
+
+    }
+
+    //NO TELEOP
+    public void slidebytime(double slideSDrive, double slideTime) {
+        this.slide(slideSDrive);
+        while (runtime.seconds() < slideTime);
+        //telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+        //telemetry.update();
     }
 
     public void drive(double driveDrive) {
@@ -133,6 +124,13 @@ public class TechbotHardware2 {
         rightBackDrive.setPower(driveDrive);
     }
 
+    //NO TELEOP
+    public void drivebytime(double driveDrive, double driveTime) {
+        this.drive(driveDrive);
+        while (runtime.seconds() < driveTime);
+        //telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+        //telemetry.update();
+    }
 
     public void driveS(double driveSDrive) {
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -144,6 +142,7 @@ public class TechbotHardware2 {
         rightDrive.setPower(driveSDrive/2);
         leftBackDrive.setPower(driveSDrive/2);
         rightBackDrive.setPower(driveSDrive/2);
+
     }
 
     public void spin(double spinDrive) {
@@ -156,39 +155,25 @@ public class TechbotHardware2 {
         rightDrive.setPower(spinDrive);
         leftBackDrive.setPower(spinDrive);
         rightBackDrive.setPower(spinDrive);
+
     }
 
-    public void stop() {
-        double power = 0.0;
-
-        leftDrive.setPower(power);
-        rightDrive.setPower(power);
-        leftBackDrive.setPower(power);
-        rightBackDrive.setPower(power);
-    }
-
-    public void driveByTime(double drive, double driveTime) {
-        this.drive(drive);
-        while (runtime.seconds() < driveTime) {
-            // do nothing
-        }
-    }
-
-    public void spinByTime(double spinDrive, double spinTime) {
+    //NO TELEOP
+    public void spinbytime(double spinDrive, double spinTime) {
         this.spin(spinDrive);
-        while (runtime.seconds() < spinDrive) {
-            // do nothing
-        }
+        while (runtime.seconds() < spinTime);
+        //telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+        //telemetry.update();
     }
+
 
     /* Initialize standard Hardware interfaces */
     public void init(HardwareMap ahwMap) {
         // Save reference to Hardware map
         hwMap = ahwMap;
-
+        runtime = new ElapsedTime ();
+        //Issues getting the techbot to run. Keeps looking for left front and back and right front and back motors
         // Define and Initialize Motors
-        runtime = new ElapsedTime();
-
         leftDrive  = hwMap.get(DcMotor.class, "Left front motor");
         rightDrive = hwMap.get(DcMotor.class, "Right front motor");
         leftBackDrive = hwMap.get(DcMotor.class, "Left back motor");
@@ -206,6 +191,7 @@ public class TechbotHardware2 {
         farm.setDirection(DcMotor.Direction.FORWARD);
         //lift.setDirection(DcMotor.Direction.FORWARD);
 
+
         // Set all motors to zero power
         leftDrive.setPower(0);
         rightDrive.setPower(0);
@@ -214,6 +200,7 @@ public class TechbotHardware2 {
         larm.setPower(0);
         farm.setPower(0);
         //lift.setPower(0);
+
 
         /*
         // Set all motors to run without encoders.
@@ -230,3 +217,4 @@ public class TechbotHardware2 {
         //servoWrist.setPosition(MID_SERVO);
     }
  }
+
