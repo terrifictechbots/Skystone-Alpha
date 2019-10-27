@@ -297,7 +297,7 @@ public class TerryAuto7 extends LinearOpMode {
             telemetry.update();
         }
 
-        Terry.stop(STOP_SPEED);
+        Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.1)) {
             telemetry.addData("Slide", "Leg 4: %2.5f S Elapsed", runtime.seconds());
@@ -319,100 +319,100 @@ public class TerryAuto7 extends LinearOpMode {
             telemetry.update();
         }
 
-            Terry.stop(STOP_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.5)) {
-                    telemetry.addData("Slide", "Leg 7: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-            }
+        Terry.stop();
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Slide", "Leg 7: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.servoHand.setPosition(1);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.16)) {
-                telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
-                telemetry.update();
-            }
+        Terry.servoHand.setPosition(1);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.16)) {
+            telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.stop(STOP_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.44)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.stop();
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.44)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.drive(-FORWARD_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.29)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.drive(-FORWARD_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.29)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.stop(STOP_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 1)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.stop();
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.servoHand.setPosition(0);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.1)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.servoHand.setPosition(0);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.1)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                //Terry has block in hand on the ground
+        //Terry has block in hand on the ground
 
-                Terry.stop(STOP_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 1.0)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.stop();
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.larm.setPower(LARM_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.6)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.larm.setPower(LARM_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.stop(STOP_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 1)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.stop();
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                //Terry has the block in hand hovering over original place
+        //Terry has the block in hand hovering over original place
 
-                Terry.drive(-FORWARD_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.5)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.drive(-FORWARD_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.slideL(SLIDEL_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 3.4)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.slideL(SLIDEL_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 3.4)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.spin(-SPIN_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 1.1)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.spin(-SPIN_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1.1)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.stop(STOP_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.5)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.stop();
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
         Terry.larm.setPower(LARM_SPEED);
         runtime.reset();
@@ -430,35 +430,35 @@ public class TerryAuto7 extends LinearOpMode {
 
         //Terry has block in hand hovering over foundation
 
-        Terry.stop(STOP_SPEED);
+        Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.3)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
-                Terry.servoHand.setPosition(1);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.5)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.servoHand.setPosition(1);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.stop(STOP_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.5)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        Terry.stop();
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
         Terry.drive(FORWARD_SPEED);
-                runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.4)) {
-                    telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                }
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.4)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-                Terry.stop(STOP_SPEED);
+        Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.3)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -472,7 +472,7 @@ public class TerryAuto7 extends LinearOpMode {
             telemetry.update();
         }
 
-        Terry.stop(STOP_SPEED);
+        Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.3)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -485,8 +485,6 @@ public class TerryAuto7 extends LinearOpMode {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
-
-
-            }
-        }
+    }
+}
 

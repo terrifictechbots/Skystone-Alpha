@@ -298,7 +298,7 @@ public class TerryAuto1 extends LinearOpMode {
             telemetry.update();
         }
 
-        Terry.stop(STOP_SPEED);
+        Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.1)) {
             telemetry.addData("Slide", "Leg 4: %2.5f S Elapsed", runtime.seconds());
@@ -320,7 +320,7 @@ public class TerryAuto1 extends LinearOpMode {
             telemetry.update();
         }
 
-            Terry.stop(STOP_SPEED);
+            Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 0.5)) {
                     telemetry.addData("Slide", "Leg 7: %2.5f S Elapsed", runtime.seconds());
@@ -334,7 +334,7 @@ public class TerryAuto1 extends LinearOpMode {
                 telemetry.update();
             }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 0.44)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -348,7 +348,7 @@ public class TerryAuto1 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 1)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -364,7 +364,7 @@ public class TerryAuto1 extends LinearOpMode {
 
                 //Terry has block in hand on the ground
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 1.0)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -378,7 +378,7 @@ public class TerryAuto1 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 1)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -408,7 +408,7 @@ public class TerryAuto1 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 0.5)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -431,7 +431,7 @@ public class TerryAuto1 extends LinearOpMode {
 
         //Terry has block in hand hovering over foundation
 
-        Terry.stop(STOP_SPEED);
+        Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.3)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -445,7 +445,7 @@ public class TerryAuto1 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 0.5)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -459,7 +459,7 @@ public class TerryAuto1 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.3)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -473,7 +473,7 @@ public class TerryAuto1 extends LinearOpMode {
             telemetry.update();
         }
 
-        Terry.stop(STOP_SPEED);
+        Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.3)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());

@@ -158,6 +158,15 @@ public class TechbotHardware2 {
         rightBackDrive.setPower(spinDrive);
     }
 
+    public void stop() {
+        double power = 0.0;
+
+        leftDrive.setPower(power);
+        rightDrive.setPower(power);
+        leftBackDrive.setPower(power);
+        rightBackDrive.setPower(power);
+    }
+
     public void driveByTime(double drive, double driveTime) {
         this.drive(drive);
         while (runtime.seconds() < driveTime) {
