@@ -318,7 +318,7 @@ Terry.init(hardwareMap);
             spinPowerCCW = gamepad1.right_trigger;
             slideSpower = gamepad1.left_stick_x;
             spinPowerCW = -gamepad1.left_trigger;
-            larmPower = gamepad2.left_stick_y;
+            larmPower = -gamepad2.left_stick_y;
             farmPower = gamepad2.right_stick_y;
 
             //wristPosition = gamepad2.left_trigger;
