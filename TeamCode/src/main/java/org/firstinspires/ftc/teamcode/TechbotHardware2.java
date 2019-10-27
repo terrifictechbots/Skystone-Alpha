@@ -60,7 +60,7 @@ public class TechbotHardware2 {
     public DcMotor rightBackDrive = null;
     public DcMotor larm = null;
     public DcMotor farm = null;
-
+    public ElapsedTime runtime;
     public Servo servoHand = null;
     //public Servo servoWrist = null;
 
@@ -87,7 +87,6 @@ public class TechbotHardware2 {
         rightDrive.setPower(slideDrive);
         leftBackDrive.setPower(slideDrive);
         rightBackDrive.setPower(slideDrive);
-
     }
 
     public void slideR(double slideDrive) {
@@ -100,7 +99,14 @@ public class TechbotHardware2 {
         rightDrive.setPower(slideDrive);
         leftBackDrive.setPower(slideDrive);
         rightBackDrive.setPower(slideDrive);
+    }
 
+    //NO TELEOP
+    public void slideByTime (double slideDrive, double slideTime) {
+        this.slideL(slideDrive);
+        while (runtime.seconds() < slideTime) {
+            // do nothing
+        }
     }
 
     public void slideS(double slideSDrive) {
@@ -113,7 +119,6 @@ public class TechbotHardware2 {
         rightDrive.setPower(slideSDrive);
         leftBackDrive.setPower(slideSDrive);
         rightBackDrive.setPower(slideSDrive);
-
     }
 
     public void drive(double driveDrive) {
@@ -126,25 +131,8 @@ public class TechbotHardware2 {
         rightDrive.setPower(driveDrive);
         leftBackDrive.setPower(driveDrive);
         rightBackDrive.setPower(driveDrive);
-
     }
 
-    public void stop(double stopDrive) {
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);
-        leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
-        larm.setDirection(DcMotor.Direction.FORWARD);
-        farm.setDirection(DcMotor.Direction.FORWARD);
-
-        leftDrive.setPower(stopDrive);
-        rightDrive.setPower(stopDrive);
-        leftBackDrive.setPower(stopDrive);
-        rightBackDrive.setPower(stopDrive);
-        larm.setPower(stopDrive);
-        farm.setPower(stopDrive);
-
-    }
 
     public void driveS(double driveSDrive) {
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -156,7 +144,6 @@ public class TechbotHardware2 {
         rightDrive.setPower(driveSDrive/2);
         leftBackDrive.setPower(driveSDrive/2);
         rightBackDrive.setPower(driveSDrive/2);
-
     }
 
     public void spin(double spinDrive) {
@@ -169,17 +156,30 @@ public class TechbotHardware2 {
         rightDrive.setPower(spinDrive);
         leftBackDrive.setPower(spinDrive);
         rightBackDrive.setPower(spinDrive);
-
     }
 
+    public void driveByTime(double drive, double driveTime) {
+        this.drive(drive);
+        while (runtime.seconds() < driveTime) {
+            // do nothing
+        }
+    }
+
+    public void spinByTime(double spinDrive, double spinTime) {
+        this.spin(spinDrive);
+        while (runtime.seconds() < spinDrive) {
+            // do nothing
+        }
+    }
 
     /* Initialize standard Hardware interfaces */
     public void init(HardwareMap ahwMap) {
         // Save reference to Hardware map
         hwMap = ahwMap;
 
-        //Issues getting the techbot to run. Keeps looking for left front and back and right front and back motors
         // Define and Initialize Motors
+        runtime = new ElapsedTime();
+
         leftDrive  = hwMap.get(DcMotor.class, "Left front motor");
         rightDrive = hwMap.get(DcMotor.class, "Right front motor");
         leftBackDrive = hwMap.get(DcMotor.class, "Left back motor");
@@ -221,4 +221,3 @@ public class TechbotHardware2 {
         //servoWrist.setPosition(MID_SERVO);
     }
  }
-
