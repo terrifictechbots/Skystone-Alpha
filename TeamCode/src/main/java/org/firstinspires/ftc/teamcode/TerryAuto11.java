@@ -49,7 +49,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name="TerryAuto9", group="Linear Opmode")
 //@Disabled
-public class TerryAuto9 extends LinearOpMode {
+public class TerryAuto11 extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -278,7 +278,6 @@ public class TerryAuto9 extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        //starts on left blue
         Terry.chill(chillTime);
 
         Terry.farm.setPower(FARM_SPEED);
@@ -291,7 +290,7 @@ public class TerryAuto9 extends LinearOpMode {
         Terry.driveByTime(FORWARD_SPEED, DRIVE_TIME);
 
         Terry.slideByTime(SLIDEL_SPEED, SLIDE_TIME);
-
+        //^ slide time needs to be longer
 
         Terry.farm.setPower(FARM_SPEED);
         runtime.reset();

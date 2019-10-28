@@ -47,9 +47,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="TerryAuto9", group="Linear Opmode")
+@Autonomous(name="TerryAuto10", group="Linear Opmode")
 //@Disabled
-public class TerryAuto9 extends LinearOpMode {
+public class TerryAuto10 extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -120,7 +120,7 @@ public class TerryAuto9 extends LinearOpMode {
 
         //Route 1.  We start to the left on the blue side. Partner moves foundation.
 
-        //Route 1.  Move forward. 
+        //Route 1.  Move forward.
 
         //Route 1.  Move right. (under near side of alliance bridge).
 
@@ -128,7 +128,7 @@ public class TerryAuto9 extends LinearOpMode {
 
         //Route 1.  Pick up skystone.
 
-        //Route 1.  Move back under alliance bridge. 
+        //Route 1.  Move back under alliance bridge.
 
         //Route 1.  Drop skystone in building zone (doesn't need to be on foundation).
 
@@ -160,13 +160,13 @@ public class TerryAuto9 extends LinearOpMode {
 
         //Route 3.  We start to the right on the blue side. Partner moves foundation.
 
-        //Route 3.  Move forward and slightly right, in front of skystones. 
+        //Route 3.  Move forward and slightly right, in front of skystones.
 
         //Route 3.  Use color sensor or camera to find black skystone.
 
         //Route 3.  Pick up skystone.
 
-        //Route 3.  Move back under alliance bridge. 
+        //Route 3.  Move back under alliance bridge.
 
         //Route 3.  Drop skystone in building zone (doesn't need to be on foundation).
 
@@ -185,7 +185,7 @@ public class TerryAuto9 extends LinearOpMode {
 
         //Route 4.  Move back under alliance bridge.
 
-        //Route 4.  Drop skystone on foundation. 
+        //Route 4.  Drop skystone on foundation.
 
         //Route 4.  Move forward and left to foundation.
 
@@ -278,20 +278,8 @@ public class TerryAuto9 extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        //starts on left blue
+        //starts on right red
         Terry.chill(chillTime);
-
-        Terry.farm.setPower(FARM_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
-            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        Terry.driveByTime(FORWARD_SPEED, DRIVE_TIME);
-
-        Terry.slideByTime(SLIDEL_SPEED, SLIDE_TIME);
-
 
         Terry.farm.setPower(FARM_SPEED);
         runtime.reset();
@@ -302,6 +290,9 @@ public class TerryAuto9 extends LinearOpMode {
 
         Terry.driveByTime(-FORWARD_SPEED, DRIVE_TIME);
 
+        Terry.slideByTime(-SLIDEL_SPEED, SLIDE_TIME);
+
+
         Terry.farm.setPower(FARM_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.6)) {
@@ -309,7 +300,16 @@ public class TerryAuto9 extends LinearOpMode {
             telemetry.update();
         }
 
-        Terry.slideByTime(-SLIDEL_SPEED, SLIDE_TIME);
+        Terry.driveByTime(FORWARD_SPEED, DRIVE_TIME);
+
+        Terry.farm.setPower(FARM_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
+            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        Terry.slideByTime(SLIDEL_SPEED, SLIDE_TIME);
 
     }
 }

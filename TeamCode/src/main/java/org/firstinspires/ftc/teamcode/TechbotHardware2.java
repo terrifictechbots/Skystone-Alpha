@@ -167,6 +167,13 @@ public class TechbotHardware2 {
         rightBackDrive.setPower(power);
     }
 
+    public void chill(double chillTime) {
+        this.stop();
+        while (runtime.seconds() < chillTime) {
+            // do nothing
+        }
+    }
+
     public void driveByTime(double drive, double driveTime) {
         this.drive(drive);
         while (runtime.seconds() < driveTime) {
