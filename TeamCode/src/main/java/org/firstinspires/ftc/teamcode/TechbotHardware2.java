@@ -193,12 +193,12 @@ public class TechbotHardware2 {
 
 
         // Set all motors to zero power
-        leftDrive.setPower(0);
+     /*   leftDrive.setPower(0);
         rightDrive.setPower(0);
         leftBackDrive.setPower(0);
         rightBackDrive.setPower(0);
         larm.setPower(0);
-        farm.setPower(0);
+        farm.setPower(0);*/
         //lift.setPower(0);
 
 

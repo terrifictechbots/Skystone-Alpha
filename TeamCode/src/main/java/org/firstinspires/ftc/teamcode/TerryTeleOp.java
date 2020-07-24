@@ -333,12 +333,19 @@ Terry.init(hardwareMap);
             Terry.farm.setPower(farmPower/4);
             Terry.servoHand.setPosition(0.00+handPosition);
             //Terry.servoWrist.setPosition(0.00+wristPosition);
-            Terry.slideL(slidePower);
-            Terry.drive(drivePower);
-            Terry.spin(spinPowerCCW);
-            Terry.slideS(slideSpower);
-            Terry.spin(spinPowerCW);
-            Terry.driveS(driveSPower);
+            //Need to make sure driving only when power is > 0
+            if (slidePower > 0) {
+                Terry.slide(slidePower);
+            } else if (drivePower > 0) {
+                Terry.drive(drivePower);
+            } else if (spinPowerCCW > 0) {
+                Terry.spin(spinPowerCCW);
+            } else if (slideSpower > 0) {
+                Terry.slideS(slideSpower);
+            } else if (spinPowerCW > 0) {
+                Terry.spin(spinPowerCW);
+            } else if (driveSPower > 0)
+                Terry.driveS(driveSPower);
 
             // Show the elapsed game time and wheel power.
             //telemetry.addData("Status", "Run Time: " + runtime.toString());
