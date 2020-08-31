@@ -30,6 +30,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -47,9 +48,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="TerryAuto", group="Linear Opmode")
-//@Disabled
-public class TerryAuto2 extends LinearOpMode {
+@Autonomous(name="TerryAuto9", group="Linear Opmode")
+@Disabled
+public class TerryAuto9 extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -73,7 +74,204 @@ public class TerryAuto2 extends LinearOpMode {
 
 
         Terry.init(hardwareMap);
+        // Most robots need the motor on one side to be reversed to drive forward
+        // Reverse the motor that runs backwards when connected directly to the battery
+        //Terry.arm.setDirection(DcMotor.Direction.FORWARD);
+        //Terry.servoWrist.setDirection(Servo.Direction.FORWARD);
 
+        /*when controller is pushed forward, Terry moves forward
+        left front wheel moves fwd
+        left back wheel moves fwd
+        right front wheel moves fwd
+        right back wheel moves fwd*/
+
+        /*when controller is pushed back, Terry moves back
+        left front wheel moves back
+        left back wheel moves back
+        right front wheel moves back
+        right back wheel moves back*/
+
+        /*when controller is pushed left, Terry moves left
+        left front wheel moves back
+        left back wheel moves fwd
+        right front wheel moves fwd
+        right back wheel moves back*/
+
+        /*when controller is pushed right, Terry moves right
+        left front wheel moves fwd
+        left back wheel moves back
+        right front wheel moves back
+        right back wheel moves fwd*/
+
+        /*when controller is pushed ???, Terry rotates left
+        left front wheel moves back
+        left back wheel moves back
+        right front wheel moves fwd
+        right back wheel moves fwd*/
+
+        /*when controller is pushed ???, Terry rotates right
+        left front wheel moves fwd
+        left back wheel moves fwd
+        right front wheel moves back
+        right back wheel moves back*/
+
+        //Route 1.  We start to the left on the blue side. Partner moves foundation.
+
+        //Route 1.  Move forward. 
+
+        //Route 1.  Move right. (under near side of alliance bridge).
+
+        //Route 1.  Use color sensor or camera to find black skystone.
+
+        //Route 1.  Pick up skystone.
+
+        //Route 1.  Move back under alliance bridge. 
+
+        //Route 1.  Drop skystone in building zone (doesn't need to be on foundation).
+
+        //Route 1.  Use color sensor to park under alliance bridge.
+
+
+        //Route 2.  We start to the left on the blue side. We move foundation.
+
+        //Route 2.  Move forward and left to foundation.
+
+        //Route 2.  Grab foundation with arm.
+
+        //Route 2.  Drag foundation into corner with triangle by moving backwards.
+
+        //Route 2.  Move right until in front of skystones.
+
+        //Route 2.  Move forward 2 skystones.
+
+        //Route 2.  Use color sensor or camera to find black skystone.
+
+        //Route 2.  Pick up skystone
+
+        //Route 2.  Move back under alliance bridge.
+
+        //Route 2.  Drop skystone in building zone (doesn't need to be on foundation).
+
+        //Route 2.  Use color sensor to park under alliance bridge.
+
+
+        //Route 3.  We start to the right on the blue side. Partner moves foundation.
+
+        //Route 3.  Move forward and slightly right, in front of skystones. 
+
+        //Route 3.  Use color sensor or camera to find black skystone.
+
+        //Route 3.  Pick up skystone.
+
+        //Route 3.  Move back under alliance bridge. 
+
+        //Route 3.  Drop skystone in building zone (doesn't need to be on foundation).
+
+        //Route 3.  Use color sensor to park under alliance bridge.
+
+
+        //Route 4.  We start to the right on the blue side. We move foundation.
+
+        //Route 4.  Move right until in front of skystones.
+
+        //Route 4.  Move forward 2 skystones.
+
+        //Route 4.  Use color sensor or camera to find black skystone.
+
+        //Route 4.  Pick up skystone
+
+        //Route 4.  Move back under alliance bridge.
+
+        //Route 4.  Drop skystone on foundation. 
+
+        //Route 4.  Move forward and left to foundation.
+
+        //Route 4.  Grab foundation with arm.
+
+        //Route 4.  Drag foundation into building zone by moving backwards.
+
+        //Route 4.  Use color sensor to park under alliance bridge.
+
+
+        //Route 5 (similar to 3).  We start to the left on the red side. Partner moves foundation.
+
+        //Route 5 (3).  Move forward and slightly left, in front of skystones.
+
+        //Route 5 (3).  Use color sensor or camera to find black skystone.
+
+        //Route 5 (3).  Pick up skystone.
+
+        //Route 5 (3).  Move back under alliance bridge.
+
+        //Route 5 (3).  Drop skystone in building zone (doesn't need to be on foundation).
+
+        //Route 5 (3).  Use color sensor to park under alliance bridge.
+
+
+        //Route 6 (similar to 4).  We start to the left on the red side. We move foundation.
+
+        //Route 6 (4).  Move forward and left until in front of skystones.
+
+        //Route 6 (4).  Move forward 2 skystones.
+
+        //Route 6 (4).  Use color sensor or camera to find black skystone.
+
+        //Route 6 (4).  Pick up skystone.
+
+        //Route 6 (4).  Move back under alliance bridge.
+
+        //Route 6 (4).  Drop skystone on foundation.
+
+        //Route 6 (4).  Move forward and left to foundation.
+
+        //Route 6 (4).  Grab foundation with arm.
+
+        //Route 6 (4).  Drag foundation into building zone by moving backwards.
+
+        //Route 6 (4).  Use color sensor to park under alliance bridge.
+
+
+        //Route 7 (similar to 1).  We start to the right on the red side. Partner moves foundation.
+
+        //Route 7 (1).  Move forward.
+
+        //Route 7 (1).  Move right. (under near side of alliance bridge).
+
+        //Route 7 (1).  Use color sensor or camera to find black skystone.
+
+        //Route 7 (1).  Pick up skystone.
+
+        //Route 7 (1).  Move back under alliance bridge.
+
+        //Route 7 (1).  Drop skystone in building zone (doesn't need to be on foundation).
+
+        //Route 7 (1).  Use color sensor to park under alliance bridge.
+
+
+        //Route 8 (similar to 2).  We start to the right on the red side. We move foundation.
+
+        //Route 8 (2).  Move forward and right to foundation.
+
+        //Route 8 (2).  Grab foundation with arm.
+
+        //Route 8 (2).  Drag foundation into corner with triangle by moving backwards.
+
+        // Route 8 (2).  Move left until in front of skystones.
+
+        //Route 8 (2).  Move forward 2 skystones.
+
+        //Route 8 (2).  Use color sensor or camera to find black skystone.
+
+        //Route 8 (2).  Pick up skystone
+
+        //Route 8 (2).  Move back under alliance bridge.
+
+        //Route 8 (2).  Drop skystone in building zone (doesn't need to be on foundation).
+
+        //Route 8 (2).  Use color sensor to park under alliance bridge.
+
+
+        // Wait for the game to start (driver presses PLAY)
         waitForStart();
         runtime.reset();
 
@@ -100,7 +298,7 @@ public class TerryAuto2 extends LinearOpMode {
             telemetry.update();
         }
 
-        Terry.stop(STOP_SPEED);
+        Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.1)) {
             telemetry.addData("Slide", "Leg 4: %2.5f S Elapsed", runtime.seconds());
@@ -122,7 +320,7 @@ public class TerryAuto2 extends LinearOpMode {
             telemetry.update();
         }
 
-            Terry.stop(STOP_SPEED);
+            Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 0.5)) {
                     telemetry.addData("Slide", "Leg 7: %2.5f S Elapsed", runtime.seconds());
@@ -136,7 +334,7 @@ public class TerryAuto2 extends LinearOpMode {
                 telemetry.update();
             }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 0.44)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -150,7 +348,7 @@ public class TerryAuto2 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 1)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -166,7 +364,7 @@ public class TerryAuto2 extends LinearOpMode {
 
                 //Terry has block in hand on the ground
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 1.0)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -180,7 +378,7 @@ public class TerryAuto2 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 1)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -210,7 +408,7 @@ public class TerryAuto2 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 0.5)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -233,7 +431,7 @@ public class TerryAuto2 extends LinearOpMode {
 
         //Terry has block in hand hovering over foundation
 
-        Terry.stop(STOP_SPEED);
+        Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.3)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -247,7 +445,7 @@ public class TerryAuto2 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 0.5)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -256,43 +454,14 @@ public class TerryAuto2 extends LinearOpMode {
 
         Terry.drive(FORWARD_SPEED);
                 runtime.reset();
-                while (opModeIsActive() && (runtime.seconds() < 0.2)) {
+                while (opModeIsActive() && (runtime.seconds() < 0.4)) {
                     telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
                 }
-                //Block is dropped on foundation sitting away from foudation
 
-                Terry.stop(STOP_SPEED);
+                Terry.stop();
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.8)) {
-            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        Terry.spin(SPIN_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.88)) {
-            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        Terry.drive(FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.17)) {
-            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        Terry.farm.setPower(FARM_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.8)) {
-            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        Terry.drive(-FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.44)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.3)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
@@ -304,14 +473,7 @@ public class TerryAuto2 extends LinearOpMode {
             telemetry.update();
         }
 
-        Terry.farm.setPower(-FARM_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.8)) {
-            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        Terry.stop(STOP_SPEED);
+        Terry.stop();
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.3)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());

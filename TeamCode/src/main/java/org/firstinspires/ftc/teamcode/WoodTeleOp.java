@@ -29,15 +29,10 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.robot.Robot;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
 
 
 /**
@@ -53,13 +48,13 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="TerryTeleOp", group="Linear Opmode")
+@TeleOp(name="WoodTeleOp", group="Linear Opmode")
 //@Disabled
-public class TerryTeleOp extends LinearOpMode {
+public class WoodTeleOp extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    private TechbotHardware2 Terry = new TechbotHardware2();
+    private TechbotHardwareWood Terry = new TechbotHardwareWood();
 
 
     @Override
@@ -292,54 +287,19 @@ Terry.init(hardwareMap);
             double leftBackPower;
             double rightBackPower;*/
             //double armPower;
-            double handPosition;
            // double wristPosition;
-            double slidePower;
-            double drivePower;
-            double spinPowerCCW;
-            double slideSpower;
-            double spinPowerCW;
-            double larmPower;
-            double farmPower;
-            double driveSPower;
-            double dragPosition=.5;
+
+            double WoodPower;
+
 
             // Tank Mode uses one stick to control each wheel.
             // - This requires no math, but it is hard to drive forward slowly and keep straight.
 
-            /*leftPower  = gamepad1.right_stick_y ;
-            rightPower = gamepad1.right_stick_y ;
-            leftBackPower = gamepad1.right_stick_y;
-            rightBackPower = gamepad1.right_stick_y;*/
-            //armPower = gamepad2.left_stick_y;
-            handPosition = gamepad2.right_trigger;
-            slidePower = gamepad1.right_stick_x;
-            drivePower = gamepad1.right_stick_y;
-            driveSPower = gamepad1.left_stick_y;
-            spinPowerCCW = gamepad1.right_trigger;
-            slideSpower = gamepad1.left_stick_x;
-            spinPowerCW = -gamepad1.left_trigger;
-            larmPower = -gamepad2.left_stick_y;
-            //farmPower = gamepad2.right_stick_y;
+            WoodPower = gamepad2.right_stick_y;
 
-          if (gamepad2.a == true) {
-              Terry.fervoL.setPosition(0);
-              Terry.fervoR.setPosition(0);
-          }
-          else {
-              Terry.fervoL.setPosition(0.5);
-              Terry.fervoR.setPosition(0.5);
-          }
+            Terry.Wood.setPower(WoodPower);
 
-          if (gamepad1.x == true) {
-              Terry.farm.setPower(0.15);
-          }
-          else if (gamepad1.y == true) {
-              Terry.farm.setPower(-0.3);
-          }
-          else {
-                Terry.farm.setPower(0);
-          }
+
 
             //wristPosition = gamepad2.left_trigger;
 
@@ -347,24 +307,14 @@ Terry.init(hardwareMap);
             /*Terry.leftDrive.setPower(leftPower);
             Terry.rightDrive.setPower(rightPower);
             Terry.leftBackDrive.setPower(leftBackPower);
-            Terry.rightBackDrive.setPower(rightBackPower);*/
 
-            Terry.larm.setPower(larmPower/3);
-            //Terry.farm.setPower(farmPower/4);
-            Terry.servoHand.setPosition(0.00+handPosition);
-            //Terry.servoWrist.setPosition(0.00+wristPosition);
-            Terry.slideL(slidePower);
-            Terry.drive(drivePower);
-            Terry.spin(spinPowerCCW);
-            Terry.slideS(slideSpower);
-            Terry.spin(spinPowerCW);
-            Terry.driveS(driveSPower);
 
             Terry.leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             Terry.rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             Terry.leftBackDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             Terry.rightBackDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
+             */
+            Terry.Wood.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             // Show the elapsed game time and wheel power.
             //telemetry.addData("Status", "Run Time: " + runtime.toString());
            // telemetry.addData("Motors", "left (%.2f), right (%.2f)", Terry.leftDrive, Terry.rightDrive, /*armPower, */Terry.leftBackDrive, Terry.rightBackDrive);

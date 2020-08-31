@@ -32,6 +32,7 @@ package org.firstinspires.ftc.teamcode;
 import android.webkit.WebBackForwardList;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -51,7 +52,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  */
 
 @Autonomous(name="TerryAuto3", group="Linear Opmode")
-//@Disabled
+@Disabled
 public class TerryAuto3 extends LinearOpMode {
 
     // Declare OpMode members.
@@ -322,7 +323,7 @@ public class TerryAuto3 extends LinearOpMode {
            Terry.slidebytime(SLIDE_SPEED,SLIDE_TIME);}
         while (opModeIsActive()){
             Terry.runtime.reset();
-        Terry.spinbytime(SPIN_SPEED,SPIN_TIME);}
+        Terry.spinByTime(SPIN_SPEED,SPIN_TIME);}
                    //runtime.reset();
                    //while (opModeIsActive() && (runtime.seconds() < 0.5)) {
                      //  telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
