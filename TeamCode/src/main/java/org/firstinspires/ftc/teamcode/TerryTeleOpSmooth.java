@@ -63,6 +63,7 @@ public class TerryTeleOpSmooth extends LinearOpMode {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
+        System.out.println("Is this thing working?!");
         // Initialize the hardware variables. Note that the strings used here as parameters
         // to 'get' must correspond to the names assigned during the robot configuration
         // step (using the FTC Robot Controller app on the phone).
