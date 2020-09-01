@@ -319,7 +319,7 @@ Terry.init(hardwareMap);
             larmPower = -gamepad2.left_stick_y;
             farmPower = gamepad2.right_stick_y;
 
-            if (gamepad2.a == true) {
+            if (gamepad1.a == true) {
                 Terry.fervoL.setPosition(0);
                 Terry.fervoR.setPosition(0);
             } else {
