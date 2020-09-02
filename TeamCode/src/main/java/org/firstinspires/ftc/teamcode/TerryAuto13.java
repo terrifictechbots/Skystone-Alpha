@@ -30,7 +30,6 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -48,9 +47,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="TerryAuto9", group="Linear Opmode")
-@Disabled
-public class TerryAuto9 extends LinearOpMode {
+@Autonomous(name="TerryAuto13", group="Linear Opmode")
+//@Disabled
+public class TerryAuto13 extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -62,10 +61,10 @@ public class TerryAuto9 extends LinearOpMode {
     static final double SLIDER_SPEED = -0.6;
     static final double LARM_SPEED = 0.7;
     static final double FARM_SPEED = 0.1;
-    static final double chillTime = 15.0;
-    static final double DRIVE_TIME = 4.0;
-    static final double SPIN_TIME = 4.0;
-    static final double SLIDE_TIME = 4.0;
+    static final double CHILL_TIME = 20.0;
+    static final double DRIVE_TIME = 0.5;
+    static final double SLIDE_TIME = 1.5;
+
 
     @Override
     public void runOpMode() {
@@ -279,48 +278,13 @@ public class TerryAuto9 extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        //starts on left blue
-        Terry.chill(chillTime);
-
-        Terry.farm.setPower(FARM_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
-            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
+        Terry.chill(CHILL_TIME);
 
         Terry.driveByTime(FORWARD_SPEED, DRIVE_TIME);
 
         Terry.slideByTime(SLIDEL_SPEED, SLIDE_TIME);
 
-
-        Terry.farm.setPower(FARM_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
-            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        Terry.driveByTime(-FORWARD_SPEED, DRIVE_TIME);
-
-        Terry.farm.setPower(FARM_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
-            telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        Terry.slideByTime(-SLIDEL_SPEED, SLIDE_TIME);
-
-    }
-}
-
-
-
-
-
-
-
+        Terry.stop();
 
         // run until the end of the match (driver presses STOP)
 
@@ -532,9 +496,7 @@ public class TerryAuto9 extends LinearOpMode {
         while (opModeIsActive() && (runtime.seconds() < 1)) {
             telemetry.addData("Drive", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
-        }
-
-
-            }
         }*/
 
+            }
+        }
